@@ -1,4 +1,4 @@
-import actividades.Actividades;
+import actividades.ActividadClase;
 import model.Ser;
 
 public class ExistencialismoAPP {
@@ -11,8 +11,8 @@ public class ExistencialismoAPP {
                 .build();
 
         //Crear algunas actividades
-        Actividades estudiar = new Actividades("Estudiando filosofía", 10);
-        Actividades meditar = new Actividades("Meditando mucho", 8);
+        ActividadClase estudiar = new ActividadClase("Estudiando filosofía", 10);
+        ActividadClase meditar = new ActividadClase("Meditando mucho", 8);
 
         serExistencialista.buscarSignificado(estudiar);
         serExistencialista.buscarSignificado(meditar);
