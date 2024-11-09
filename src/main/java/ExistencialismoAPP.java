@@ -1,3 +1,4 @@
+import actividades.ActividadFactory;
 import actividades.Estudiar;
 import actividades.Socializar;
 import actividades.Trabajar;
@@ -9,9 +10,14 @@ public class ExistencialismoAPP {
 
         Ser ser = new Ser("Tricio");
 
-        Actividad estudiar = new Estudiar();
-        Actividad trabajar = new Trabajar();
-        Actividad socializar = new Socializar();
+//        Actividad estudiar = new Estudiar();
+//        Actividad trabajar = new Trabajar();
+//        Actividad socializar = new Socializar();
+
+        Actividad estudiar = ActividadFactory.crearActividad("estudiar");
+        Actividad trabajar = ActividadFactory.crearActividad("trabajar");
+        Actividad socializar = ActividadFactory.crearActividad("socializar");
+
 
         ser.buscarSignificado(estudiar);
         ser.buscarSignificado(trabajar);
