@@ -10,9 +10,6 @@ public class ExistencialismoAPP {
 
         Ser ser = new Ser("Tricio");
 
-//        Actividad estudiar = new Estudiar();
-//        Actividad trabajar = new Trabajar();
-//        Actividad socializar = new Socializar();
 
         Actividad estudiar = ActividadFactory.crearActividad("estudiar");
         Actividad trabajar = ActividadFactory.crearActividad("trabajar");
