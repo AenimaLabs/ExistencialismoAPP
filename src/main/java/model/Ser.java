@@ -1,5 +1,6 @@
 package model;
 
+import actividades.ActividadClase;
 import interfaz.Actividad;
 
 public class Ser {
@@ -16,10 +17,10 @@ public class Ser {
         this.nombre = nombre;
     }
 
-    //constructor con parámetros
-    public Ser(String nombre, double sentidoDeVida) {
+    //constructor privado para el uso exclusivo de Builder
+    private Ser(String nombre, double sentidoDeVida) {
         this.nombre = nombre;
-        this.sentidoDeVida = 0;
+        this.sentidoDeVida = sentidoDeVida;
     }
 
 
@@ -32,7 +33,7 @@ public class Ser {
         this.nombre = nombre;
     }
 
-    public double getSentidoDeVida() {
+    public double getSentidoDeVida(ActividadClase meditar) {
         return sentidoDeVida;
     }
 
@@ -41,14 +42,9 @@ public class Ser {
     }
 
     //metodo de clase
-    public void buscarSignificado (Actividad actividad){
-        actividad.realizar();
-        if (actividad.esSignificativo()){
-            sentidoDeVida +=10;
-            System.out.println(nombre + " ha encontrado un propósito en esta actividad");
-        }else {
-            System.out.println(nombre + " no ha encontrado un propósito en esta actividad");
-        }
+    public void buscarSignificado (ActividadClase actividadClase){
+        System.out.println(nombre + " busca significado en " + actividadClase.getDescripcion());
+        sentidoDeVida += actividadClase.getValorSentido();
         System.out.println("Sentido de vida actual: " + sentidoDeVida);
     }
 
@@ -58,5 +54,25 @@ public class Ser {
                 "nombre='" + nombre + '\'' +
                 ", sentidoDeVida=" + sentidoDeVida +
                 '}';
+    }
+
+    //Builder para construir el Ser de manera flexible
+    public static class SerBuilder {
+        private String nombre;
+        private double sentidoDeVida;
+
+      public SerBuilder nombre(String nombre) {
+            this.nombre = nombre;
+            return this;
+        }
+
+        public SerBuilder conSentidoDeVida(double sentidoDeVida) {
+            this.sentidoDeVida = sentidoDeVida;
+            return this;
+        }
+
+        public Ser build() {
+            return new Ser(this.nombre, this.sentidoDeVida);
+        }
     }
 }
