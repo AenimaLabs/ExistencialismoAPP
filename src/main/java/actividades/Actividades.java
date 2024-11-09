@@ -1,10 +1,10 @@
 package actividades;
 
-public class ActividadClase {
+public class Actividades {
     private String descripcion;
     private double valorSentido;
 
-    public ActividadClase(String descripcion, double valorSentido) {
+    public Actividades(String descripcion, double valorSentido) {
         this.descripcion = descripcion;
         this.valorSentido = valorSentido;
     }
